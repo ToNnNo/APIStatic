@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 app.get('/', (req: Request, res: Response) => {
     res.json({
-        'projet': 'API static formation React',
+        'projet': 'API static Node pour React et Angular',
         'urls': [
             { 'method': 'POST', 'url': 'http://localhost:3200/authentication', 'authentication': false },
             { 'method': 'GET', 'url': 'http://localhost:3200/products', 'authentication': false },
