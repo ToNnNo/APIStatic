@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 
 export const productRouter = express.Router();
 
-productRouter.get('', async (req: Request, res: Response) => {
+productRouter.route('').get((req: Request, res: Response) => {
     const products = [
         { id: 1, name: "Pommes Golden", price: 2.79},
         { id: 2, name: "Baguette", price: 1.56 },
@@ -12,4 +12,6 @@ productRouter.get('', async (req: Request, res: Response) => {
     ];
 
     res.json(products);
+}).all((req: Request, res: Response) => {
+    res.status(405).send( { status: 405, message: 'Method Not Allowed' });
 });

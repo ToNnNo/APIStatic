@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 
 export const quoteRouter = express.Router();
 
-quoteRouter.get('', async (req: Request, res: Response) => {
+quoteRouter.route('').get((req: Request, res: Response) => {
     const quotes = [
         {
             citation: `23 à 0 ! C'est la piquette Jack ! Tu sais pas jouer Jack ! T'es mauvais !`,
@@ -37,4 +37,6 @@ quoteRouter.get('', async (req: Request, res: Response) => {
     const index = Math.floor(Math.random() * quotes.length);
 
     res.json( quotes[index] );
+}).all((req: Request, res: Response) => {
+    res.status(405).send( { status: 405, message: 'Method Not Allowed' });
 });

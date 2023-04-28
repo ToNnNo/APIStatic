@@ -13,5 +13,5 @@ export default function isAuthenticated(req, res, next) {
         }catch(e){}
     }
 
-    res.status(401).json({message: `Erreur d'authentification`});
+    res.status(401).json({ status: 401, message: `Erreur d'authentification`});
 }
